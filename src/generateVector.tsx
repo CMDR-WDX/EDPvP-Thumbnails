@@ -73,7 +73,7 @@ export default async function generateVector(props: Props) {
         buildFragment(props),
         {
             width: 1200,
-            height: 630,
+            height: 400,
             fonts: [
                 {
                     name: "Roboto",

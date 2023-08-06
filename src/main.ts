@@ -39,7 +39,7 @@ http.createServer(async(req, res) => {
         const vectorAsPng = (new Resvg(vectorBuffer)).render().asPng()
         const imagePath = images[Math.floor(Math.random()*images.length)]
         let composite = sharp(imagePath)
-            .resize({width: 1200, height: 630, fit: "cover"})
+            .resize({width: 1200, height: 400, fit: "cover"})
             .blur()
             .composite([{ input: vectorAsPng}])
 
