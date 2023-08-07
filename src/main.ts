@@ -5,7 +5,7 @@
 import http from "node:http"
 import {parse} from "node:querystring"
 import { z } from "zod"
-import generateVector from "./generateVector"
+import generateVector from "./generateVector.js"
 import { join } from "node:path"
 import sharp from "sharp"
 import { Resvg } from "@resvg/resvg-js"

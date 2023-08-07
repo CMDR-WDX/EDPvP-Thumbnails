@@ -1,8 +1,6 @@
-import { Props } from "./main";
+import type { Props } from "./main.js";
 
-import React from "react";
 import satori from "satori"
-
 
 import { readFile } from "fs/promises";
 import { join } from "node:path";
