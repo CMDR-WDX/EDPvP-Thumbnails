@@ -9,9 +9,13 @@ import generateVector from "./generateVector.js"
 import { join } from "node:path"
 import sharp from "sharp"
 import { Resvg } from "@resvg/resvg-js"
+import { fileURLToPath } from "node:url"
 
 
-const images = Object.keys(import.meta.glob("../images/*.(png|jpg|jpeg)", {eager: true, query: "url"})).map( e =>  join(import.meta.url.replace("file://", ""), "..", e))
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
+
+
+const images = Object.keys(import.meta.glob("../images/*.(png|jpg|jpeg)", {eager: true, query: "url"})).map( e =>  join(__dirname, "..", e))
 
 
 const PropsZod = z.object({

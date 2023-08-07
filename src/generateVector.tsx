@@ -4,8 +4,11 @@ import satori from "satori"
 
 import { readFile } from "fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const projectRoot = join(import.meta.url, "../..").replace("file:", "")
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
+
+const projectRoot = join(__dirname, "..")
 const robotoUrl500 = join(projectRoot, "node_modules", "@fontsource/roboto/files/roboto-latin-500-normal.woff")
 const ubuntuUrl700 = join(projectRoot, "node_modules", "@fontsource/ubuntu/files/ubuntu-latin-700-normal.woff")
 
@@ -63,7 +66,6 @@ function buildFragment(props: Props) {
         </div>
     )
 }
-
 
 
 export default async function generateVector(props: Props) {
