@@ -26,7 +26,7 @@ function buildFragment(props: Props) {
     return (
         <div tw="flex flex-col w-full h-full justify-center bg-black/50">
             {/** Attacker / Victim Text */}
-            <div tw="flex flex-row w-full justify-around">
+            <div tw=" flex-col flex w-full">
                 {
                     [
                         {
@@ -39,11 +39,11 @@ function buildFragment(props: Props) {
                         }
                     ].map( ({name, ship}, index) => {
 
-                        return <div key={name} tw={"flex flex-col justify-between flex-1 px-6 py-0 m-0" }>
+                        return <div key={name} tw={"flex flex-col w-full   px-6 py-0 m-0" }>
                             
-                            <h1 style={{fontFamily: "ubuntu"}} tw={`text-8xl text-white m-0 ${index === 0 ? "self-end" : ""}`}> { index === 0 ? <KillIcon/> : <DeathIcon/> } {name}</h1>
+                            <h1 style={{fontFamily: "ubuntu"}} tw={`text-8xl   text-white m-0 ${index !== 0 ? "self-end" : ""}`}> { index === 0 ? <KillIcon/> : <DeathIcon/> } {name}</h1>
                             {
-                                ship && ship.toLowerCase() !== "unknown" && <h2 tw={` text-slate-400 text-2xl m-0 max-w-sm ${index === 0 ? "self-end" : ""}`}>{ship}</h2>
+                                ship && ship.toLowerCase() !== "unknown" && <h2 tw={`text-slate-100 text-5xl m-0 ${index !== 0 ? "self-end" : ""}`}>{ship}</h2>
                             }
                         </div>
                     })
@@ -52,7 +52,7 @@ function buildFragment(props: Props) {
             {/** System Info (if present) */}
             {
                 props.system && props.system.toLowerCase() !== "unknown" &&
-                <div tw="flex flex-row justify-center w-full items-center self-end">
+                <div  tw="flex flex-row justify-center w-full items-center self-end ">
                     <svg style={{color: "cyan"}} fill="currentColor" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={locationMarkerWidth+"px"} height={locationMarkerHeight+"px"} viewBox="0 0 476.25 806.06" enable-background="new 0 0 476.25 806.06">
                         <polygon points="238.25,-0.11 238.13,0 238,-0.11 "/>
                         <polygon  stroke-miterlimit="10" points="238.12,806.06 238.25,806.39 238,806.36 "/>
@@ -83,7 +83,8 @@ export default async function generateVector(props: Props) {
                     name: "Ubuntu",
                     data: ubuntuBuf700
                 }
-            ]
+            ],
+            debug: false
         }
     )
 }
